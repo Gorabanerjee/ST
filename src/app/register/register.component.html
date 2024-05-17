@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <title>Streamflix | Login & Registration</title>
+</head>
+<body>
+    
+  
+ <div class="wrapper">
+    
+    
+
+<!----------------------------- Form box ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- register from -------------------------->
+
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Have an account? <a href="/login" onclick="register()">Log In</a></span>
+                <header>Sign Up</header>
+            </div>
+            <div class="input-box">
+                <input type="text" [(ngModel)]="fname" [ngModelOptions]="{standalone : true}" class="input-field" id="fname" placeholder="Firstname">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" [(ngModel)]="lname" [ngModelOptions]="{standalone : true}" class="input-field" id="lname" placeholder="Lastname">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="date" [(ngModel)]="age" [ngModelOptions]="{standalone : true}" class="input-field" id="age" placeholder="age">
+                <i class="bx bx-user"></i>
+            </div>
+           
+              
+            <div class="input-box">
+                <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone : true}" class="input-field" id="email" placeholder="Email">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone : true}" class="input-field" id="password" placeholder="Password">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" [(ngModel)]="Confrom_password" [ngModelOptions]="{standalone : true}" class="input-field" id="Confrom_password" placeholder="Confirm Password">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            
+
+
+
+            <div class="input-box">
+                <input type="submit" class="submit" value="Register" (click)="save()" herf="/login">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check"> Remember Me</label>
+                </div>
+            
+                
+            </div>
+        </div>
+    
+
+        
+    </div>
+
+</div>   
+
+
+</body>
+</html>

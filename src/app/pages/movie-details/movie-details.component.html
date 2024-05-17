@@ -1,0 +1,87 @@
+<div class="contain mt-5">
+        <div class="row p-5">
+            <div class="col-lg-2" *ngIf="getMovieDetailResult.poster_path">
+                    <img 
+                    src="https://image.tmdb.org/t/p/original/{{ getMovieDetailResult.poster_path }}" 
+                    >
+            </div>
+            <div class="col-lg-10 mt-5 p-4">
+                    <h1 class="mt-2 mb-2">{{getMovieDetailResult.original_title}}</h1>
+                    <p class="mt-3 mb-3">{{getMovieDetailResult.overview}}</p>
+                    <a class="btn btn-md" href="https://www.themoviedb.org/video/play?key={{getMovieVideoResult}}" 
+                    target="_blank"
+                    >watch trailer</a>
+
+    <div id="player"></div>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script>
+        // This function creates an <iframe> (and YouTube player)
+        // after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'NmlYmnv6EyIFiBW1', // Replace 'YOUR_VIDEO_ID' with the actual ID of the YouTube video you want to play
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo(); // Auto-play the video when the player is ready
+        }
+
+        // The API calls this function when the player's state changes.
+        // The function indicates that when playing a video (state=1),
+        // the player should play for six seconds and then stop.
+        var done = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+        function stopVideo() {
+            player.stopVideo();
+        }
+    </script>
+	<div class="post" data-post-id="7712">
+		<div class="post-ratings-container">
+			<div class="post-rating">
+				<span class="post-rating-button material-icons">thumb_up</span>
+				<span class="post-rating-count">0</span>
+			</div>
+			<div class="post-rating">
+				<span class="post-rating-button material-icons">thumb_down</span>
+				<span class="post-rating-count">0</span>
+			</div>
+		</div>
+	</div>
+
+                    <div class="mt-4 p-4">
+                        <h2 class="text-white">Top Cast</h2>
+                        <div class="row">
+                        <div class="col-lg-4" *ngFor="let c of getMovieCastResult">
+                            <div class="row mt-2 mb-2">
+                                <div class="col-lg-2" *ngIf="c.profile_path">
+                                    <img 
+                                    src="https://image.tmdb.org/t/p/original/{{ c.profile_path}}" 
+                                    >
+                                </div>
+                                <div class="col-lg-10">
+                                    <h3 class="text-white">{{c.original_name}}</h3>
+                                    <p class="text-white">{{c.character}}</p>
+                                </div>
+                            </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>

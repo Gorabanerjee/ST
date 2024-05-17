@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Like/Dislike Counter</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="main.js" defer></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+	<div id="player"></div>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script>
+        // This function creates an <iframe> (and YouTube player)
+        // after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'NmlYmnv6EyIFiBW1', // Replace 'YOUR_VIDEO_ID' with the actual ID of the YouTube video you want to play
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo(); // Auto-play the video when the player is ready
+        }
+
+        // The API calls this function when the player's state changes.
+        // The function indicates that when playing a video (state=1),
+        // the player should play for six seconds and then stop.
+        var done = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+        function stopVideo() {
+            player.stopVideo();
+        }
+    </script>
+	<div class="post" data-post-id="7712">
+		<div class="post-ratings-container">
+			<div class="post-rating">
+				<span class="post-rating-button material-icons">thumb_up</span>
+				<span class="post-rating-count">0</span>
+			</div>
+			<div class="post-rating">
+				<span class="post-rating-button material-icons">thumb_down</span>
+				<span class="post-rating-count">0</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
